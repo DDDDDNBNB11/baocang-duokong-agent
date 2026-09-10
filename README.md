@@ -1,3 +1,4 @@
+网址测试功能网址：https://flourishing-palmier-6da37c.netlify.app/
 # 合约爆仓多空观测智能体
 
 独立开发的本地 Web Agent 参赛作品，不属于币安官方产品，不提供交易功能。
