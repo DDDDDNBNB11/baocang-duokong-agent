@@ -35,6 +35,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200); self.send_header('Content-Type','text/html; charset=utf-8'); self.send_header('Content-Length',str(len(raw))); self.end_headers(); self.wfile.write(raw)
     def log_message(self, *args): pass
 
-def run_server(port=8001):
-    print(f'本地网页：http://127.0.0.1:{port}')
-    ThreadingHTTPServer(('127.0.0.1', port), Handler).serve_forever()
+def run_server(port=None):
+    port = int(port or os.environ.get('PORT') or 8001)
+    host = os.environ.get('HOST') or '127.0.0.1'
+    print(f'网页地址：http://{host}:{port}')
+    ThreadingHTTPServer((host, port), Handler).serve_forever()
